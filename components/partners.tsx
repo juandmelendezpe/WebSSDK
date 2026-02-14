@@ -140,7 +140,7 @@ export function Partners() {
       } else {
         el.scrollBy({ left: 340, behavior: "smooth" })
       }
-    }, 1000)
+    }, 3000)
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current)
@@ -156,7 +156,7 @@ export function Partners() {
   }, [])
 
   return (
-    <section className="bg-purple-300 py-24">
+    <section className="bg-muted/50 py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-accent">
