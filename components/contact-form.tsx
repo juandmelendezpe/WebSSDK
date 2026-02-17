@@ -1,15 +1,50 @@
 "use client"
 
 import { useState } from "react"
-import { Send } from "lucide-react"
+import { Send, AlertCircle, CheckCircle } from "lucide-react"
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 4000)
+    setLoading(true)
+    setError(null)
+
+    const formData = new FormData(e.currentTarget)
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      company: formData.get("company") as string,
+      service: formData.get("service") as string,
+      message: formData.get("message") as string,
+    }
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.error || "Error al enviar el email")
+      }
+
+      setSubmitted(true)
+      e.currentTarget.reset()
+      setTimeout(() => setSubmitted(false), 4000)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Error al enviar el email")
+      setTimeout(() => setError(null), 5000)
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -38,17 +73,26 @@ export function ContactForm() {
 
         <div className="mt-16 flex justify-center">
           <div className="w-full lg:max-w-2xl">
+            {error && (
+              <div className="mb-6 flex items-start gap-3 rounded-xl border border-red-400/50 bg-red-400/10 p-4 backdrop-blur-sm">
+                <AlertCircle className="h-5 w-5 flex-shrink-0 text-red-400 mt-0.5" />
+                <div>
+                  <h3 className="font-semibold text-red-200">Error al enviar</h3>
+                  <p className="text-sm text-red-100">{error}</p>
+                </div>
+              </div>
+            )}
             {submitted ? (
-              <div className="flex h-full items-center justify-center rounded-xl border border-accent/30 bg-accent/5 p-12">
+              <div className="flex h-full items-center justify-center rounded-xl border border-green-400/50 bg-green-400/10 backdrop-blur-sm p-12">
                 <div className="text-center">
-                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10">
-                    <Send className="h-7 w-7 text-accent" />
+                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-400/20">
+                    <CheckCircle className="h-7 w-7 text-green-300" />
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground">
-                    Mensaje enviado
+                  <h3 className="text-xl font-semibold text-green-200">
+                    ¡Mensaje enviado!
                   </h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Nos pondremos en contacto contigo pronto.
+                  <p className="mt-2 text-sm text-green-100">
+                    Gracias por contactarnos. Te responderemos pronto.
                   </p>
                 </div>
               </div>
@@ -152,10 +196,11 @@ export function ContactForm() {
 
                 <button
                   type="submit"
-                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-white/20 backdrop-blur-sm px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white/30"
+                  disabled={loading}
+                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-white/20 backdrop-blur-sm px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white/30 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Send className="h-4 w-4" />
-                  Enviar mensaje
+                  {loading ? "Enviando..." : "Enviar mensaje"}
                 </button>
               </form>
             )}
