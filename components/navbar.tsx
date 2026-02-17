@@ -1,32 +1,44 @@
 "use client"
 
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 import Image from "next/image"
+import Link from "next/link"
 import { Menu, X } from "lucide-react"
 
 const navLinks = [
   { label: "Inicio", href: "#inicio" },
   { label: "Servicios", href: "#servicios" },
+  { label: "Noticias", href: "#noticias" },
   { label: "Nosotros", href: "#nosotros" },
   { label: "Contacto", href: "#contacto" },
 ]
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const pathname = usePathname()
+  const isHome = pathname === "/"
+
+  const getLinkHref = (href: string) => {
+    if (isHome) {
+      return href
+    }
+    return `/${href}`
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-md border-b border-primary-foreground/10">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
         <div className="flex items-center gap-8">
-          <span className="font-serif text-lg font-bold text-primary-foreground">
+          <Link href="/" className="font-serif text-lg font-bold text-primary-foreground">
             SSDK Inc.
-          </span>
+          </Link>
 
           <ul className="hidden items-center gap-8 md:flex">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
-                  href={link.href}
+                  href={getLinkHref(link.href)}
                   className="text-sm font-medium text-primary-foreground/70 transition-colors hover:text-primary-foreground"
                 >
                   {link.label}
@@ -38,7 +50,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-4">
           <a
-            href="#contacto"
+            href={getLinkHref("#contacto")}
             className="hidden rounded-lg bg-accent px-5 py-2 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 md:block"
           >
             Contactar
@@ -52,7 +64,7 @@ export function Navbar() {
             {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
 
-          <a href="#inicio" className="flex-shrink-0">
+          <Link href="/" className="flex-shrink-0">
             <Image
               src="/images/logo.png"
               alt="STATUS SDK Inc. logo"
@@ -60,7 +72,7 @@ export function Navbar() {
               height={44}
               className="rounded-full border-2 border-white"
             />
-          </a>
+          </Link>
         </div>
       </nav>
 
@@ -70,7 +82,7 @@ export function Navbar() {
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
-                  href={link.href}
+                  href={getLinkHref(link.href)}
                   className="block text-base font-medium text-primary-foreground/80 transition-colors hover:text-primary-foreground"
                   onClick={() => setMobileOpen(false)}
                 >
@@ -80,7 +92,7 @@ export function Navbar() {
             ))}
             <li>
               <a
-                href="#contacto"
+                href={getLinkHref("#contacto")}
                 className="mt-2 block rounded-lg bg-accent px-5 py-2.5 text-center text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90"
                 onClick={() => setMobileOpen(false)}
               >

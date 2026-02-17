@@ -49,7 +49,7 @@ const partners = [
     logo: "https://www.vectorlogo.zone/logos/openai/openai-icon.svg",
     services: [
       "GPT-4 / LLMs",
-      "DALL-E (Generacion de imagenes)",
+      "DALL-E (Generación de imágenes)",
       "API de Embeddings",
       "Asistentes con herramientas",
     ],
@@ -59,8 +59,8 @@ const partners = [
     logo: "https://www.vectorlogo.zone/logos/anthropic/anthropic-icon.svg",
     services: [
       "Claude AI (LLM avanzado)",
-      "Analisis de documentos",
-      "Generacion de codigo",
+      "Análisis de documentos",
+      "Generación de código",
       "IA conversacional segura",
     ],
   },
@@ -70,7 +70,7 @@ const partners = [
     services: [
       "GitHub Actions (CI/CD)",
       "Copilot (IA para devs)",
-      "Repositorios & Colaboracion",
+      "Repositorios & Colaboración",
       "GitHub Packages",
     ],
   },
@@ -80,7 +80,7 @@ const partners = [
     services: [
       "Redes empresariales",
       "Ciberseguridad (SecureX)",
-      "Webex Collaboration",
+      "Webex Colaboración",
       "SD-WAN",
     ],
   },
@@ -99,7 +99,7 @@ const partners = [
     logo: "https://www.vectorlogo.zone/logos/cloudflare/cloudflare-icon.svg",
     services: [
       "CDN Global",
-      "Proteccion DDoS",
+      "Protección DDoS",
       "Workers (Edge Computing)",
       "Zero Trust Security",
     ],
@@ -156,16 +156,14 @@ export function Partners() {
   }, [])
 
   return (
-    <section className="bg-muted/50 py-24">
+    <section className="bg-gradient-to-b from-blue-700 to-blue-900 py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-wider text-accent">
-            Nuestros Partners
-          </p>
-          <h2 className="mt-3 font-serif text-3xl font-bold text-foreground sm:text-4xl text-balance">
+          
+          <h2 className="mt-3 font-serif text-3xl font-bold text-white sm:text-4xl text-balance">
             Aliados tecnologicos de clase mundial
           </h2>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
+          <p className="mt-4 text-white/90 leading-relaxed">
             Trabajamos con los lideres de la industria para ofrecer soluciones
             robustas, escalables y de vanguardia.
           </p>
@@ -208,10 +206,10 @@ export function Partners() {
             {partners.map((partner) => (
               <div
                 key={partner.name}
-                className="group flex w-[310px] flex-shrink-0 flex-col rounded-xl border border-border bg-card p-6 transition-all hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5"
+                className="group flex w-[310px] h-[440px] flex-shrink-0 flex-col items-center justify-center rounded-xl border-2 border-cyan-400 shadow-lg shadow-cyan-400/50 bg-card p-6 transition-all hover:border-cyan-300 hover:shadow-xl hover:shadow-cyan-400/70"
               >
                 {/* Logo + Name */}
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col items-center justify-center gap-4 text-center">
                   <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-background p-2.5">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -231,11 +229,11 @@ export function Partners() {
                 <div className="my-4 h-px bg-border" />
 
                 {/* Services */}
-                <ul className="flex flex-col gap-2.5">
+                <ul className="flex flex-col gap-2.5 text-center">
                   {partner.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-start gap-2.5 text-sm text-muted-foreground"
+                      className="flex items-center justify-center gap-2.5 text-sm text-muted-foreground"
                     >
                       <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
                       <span className="leading-relaxed">{service}</span>

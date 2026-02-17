@@ -8,7 +8,7 @@ const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfa
 
 export const metadata: Metadata = {
   title: 'SSDK Inc. | Software Development & Data Analytics',
-  description: 'SSDK Inc. - Soluciones innovadoras en desarrollo de software y analisis de datos para impulsar tu negocio al siguiente nivel.',
+  description: 'SSDK Inc. - Soluciones innovadoras en desarrollo de software y análisis de datos para impulsar tu negocio al siguiente nivel.',
 }
 
 export default function RootLayout({

@@ -1,0 +1,35 @@
+[
+  {
+    "id": "1",
+    "title": "SSDK Inc. Lanza Plataforma de Análisis de Datos en Tiempo Real",
+    "subtitle": "Nueva solución empresarial que transforma datos en insights accionables en segundos",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1170&auto=format&fit=crop",
+    "date": "2026-02-15",
+    "author": "Juan Méndez",
+    "category": "Producto",
+    "content": "SSDK Inc. se enorgullece en presentar su nueva plataforma de análisis de datos en tiempo real, diseñada específicamente para empresas que necesitan tomar decisiones rápidas basadas en datos precisos.\n\n## Características Principales\n\nNuestra plataforma ofrece:\n\n- **Procesamiento en Tiempo Real**: Analiza millones de eventos por segundo sin latencia perceptible\n- **Dashboards Interactivos**: Visualizaciones personalizables que se adaptan a tus necesidades\n- **Machine Learning Integrado**: Predicciones automáticas basadas en tus datos históricos\n- **Seguridad Enterprise**: Cumple con GDPR, SOC 2 y otras certificaciones internacionales\n\n## Impacto en la Industria\n\nEsta innovación permite a empresas de todos los tamaños:\n\n1. Reducir el tiempo de decisión en un 70%\n2. Identificar tendencias antes que la competencia\n3. Automatizar procesos de análisis complejos\n4. Escalar sin aumentar costos de infraestructura\n\n## Disponibilidad\n\nLa plataforma está disponible ahora en versión beta para empresas seleccionadas. Contacta con nuestro equipo para más información.",
+    "readTime": "5 min"
+  },
+  {
+    "id": "2",
+    "title": "Seguridad en Desarrollo: Mejores Prácticas 2026",
+    "subtitle": "Cómo proteger tu aplicación desde la etapa de desarrollo",
+    "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=400&fit=crop",
+    "date": "2026-02-12",
+    "author": "María Rodríguez",
+    "category": "Seguridad",
+    "content": "La seguridad en el desarrollo de software es más crítica que nunca. En este artículo, exploraremos las mejores prácticas que todo desarrollador debe conocer en 2026.\n\n## Los 5 Pilares de la Seguridad\n\n### 1. Validación de Entrada\nTodo dato que entra a tu aplicación debe ser validado y sanitizado. Nunca confíes en la entrada del usuario.\n\n### 2. Gestión de Secretos\nNunca guardes credenciales en el código. Utiliza variables de entorno y servicios de gestión de secretos como AWS Secrets Manager.\n\n### 3. Dependencias Actualizadas\nMantén todas tus dependencias actualizadas. Usa herramientas como Dependabot para detectar vulnerabilidades.\n\n### 4. Encriptación\nEncripta datos sensibles tanto en tránsito como en reposo. Utiliza TLS 1.3 para transmisiones.\n\n### 5. Testing de Seguridad\nRealiza pruebas de penetración regulares y usa SAST (Static Application Security Testing).\n\n## Herramientas Recomendadas\n\n- OWASP ZAP para testing\n- Snyk para gestión de dependencias\n- SonarQube para análisis de código\n- HashiCorp Vault para gestión de secretos\n\nImplementar estas prácticas puede reducir vulnerabilidades en un 85%.",
+    "readTime": "8 min"
+  },
+  {
+    "id": "3",
+    "title": "La Evolución de la Inteligencia Artificial en Empresas",
+    "subtitle": "De ChatGPT a soluciones empresariales especializadas",
+    "image": "https://images.unsplash.com/photo-1620825937374-87fc7d6bddc2?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "date": "2026-02-10",
+    "author": "Carlos López",
+    "category": "Tecnología",
+    "content": "La inteligencia artificial ha dejado de ser una novedad para convertirse en una necesidad empresarial. Exploramos cómo las organizaciones están implementando IA para obtener ventajas competitivas.\n\n## El Boom de la IA Empresarial\n\nEn los últimos 18 meses, hemos visto una transformación radical en cómo las empresas adoptan la IA:\n\n- **2023-2024**: Era de los chatbots generales (ChatGPT, Claude)\n- **2024-2025**: Desarrollo de modelos especializados por industria\n- **2025-2026**: Integración profunda en procesos empresariales\n\n## Caso de Éxito: Automatización de Procesos\n\nUna de nuestras clientes, empresa de servicios financieros, implementó una solución de IA para:\n\n- Análisis automático de documentos: 10,000 documentos/día\n- Validación de cumplimiento normativo: 99.8% de precisión\n- Reducción de tiempo de procesamiento: 85%\n- ROI: 350% en el primer año\n\n## Desafíos y Soluciones\n\n### Desafío 1: Privacidad de Datos\n**Solución**: Usar modelos de IA on-premise o con encriptación end-to-end.\n\n### Desafío 2: Sesgos Algorítmicos\n**Solución**: Auditar modelos regularmente y usar datos de entrenamiento diversos.\n\n### Desafío 3: Costo de Implementación\n**Solución**: Comenzar con casos de uso específicos y escalar gradualmente.\n\n## El Futuro\n\nEsperamos ver en 2026:\n- Regulación más clara sobre IA\n- Mejora significativa en interpretabilidad de modelos\n- Mayor enfoque en IA ética\n- Integración con edge computing",
+    "readTime": "10 min"
+  }
+]

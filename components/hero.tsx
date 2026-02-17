@@ -173,13 +173,13 @@ export function Hero() {
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-primary-foreground/80 text-pretty">
               Las empresas que integran IA hoy lideran manana. En STATUS SDK Inc.
               desarrollamos soluciones innovadoras que combinan inteligencia artificial,
-              analisis de datos y desarrollo de software para transformar tu operacion
+              análisis de datos y desarrollo de software para transformar tu operación
               y posicionarte a la vanguardia de tu industria.
             </p>
 
             <p className="mt-4 max-w-xl text-base leading-relaxed text-primary-foreground/60">
               Desde la automatizacion de procesos hasta modelos predictivos avanzados,
-              ayudamos a tu empresa a tomar decisiones mas rapidas, reducir costos
+              ayudamos a tu empresa a tomar decisiones más rápidas, reducir costos
               y descubrir oportunidades que antes eran invisibles.
             </p>
           </div>

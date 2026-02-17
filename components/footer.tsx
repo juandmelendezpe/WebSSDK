@@ -3,7 +3,7 @@ import Image from "next/image"
 const footerLinks = {
   servicios: [
     { label: "Desarrollo de Software", href: "#servicios" },
-    { label: "Analisis de Datos", href: "#servicios" },
+    { label: "Análisis de Datos", href: "#servicios" },
     { label: "Arquitectura de Datos", href: "#servicios" },
     { label: "Ciberseguridad", href: "#servicios" },
   ],
@@ -33,11 +33,11 @@ export function Footer() {
             </div>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-primary-foreground/60">
               Soluciones innovadoras en desarrollo de software, inteligencia artificial
-              y analisis de datos para impulsar tu negocio al siguiente nivel.
+              y análisis de datos para impulsar tu negocio al siguiente nivel.
             </p>
             <div className="mt-4 flex flex-col gap-1.5 text-sm text-primary-foreground/50">
               <span>Lima, San Isidro | Perú</span>
-              <span>info@ssdk.es</span>
+              <span>clientes@statussdk.com</span>
               <span>L-V 8:00 AM - 6:00 PM | Soporte 24/7</span>
             </div>
           </div>

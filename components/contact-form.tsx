@@ -1,30 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Send, MapPin, Mail, Clock, Headset } from "lucide-react"
-
-const contactInfo = [
-  {
-    icon: MapPin,
-    label: "Ubicacion",
-    value: "Lima, San Isidro | Perú",
-  },
-  {
-    icon: Mail,
-    label: "Email",
-    value: "info@ssdk.es",
-  },
-  {
-    icon: Clock,
-    label: "Horario de oficina",
-    value: "Lunes a Viernes: 8:00 AM - 6:00 PM",
-  },
-  {
-    icon: Headset,
-    label: "Soporte tecnico",
-    value: "Disponible 24/7",
-  },
-]
+import { Send } from "lucide-react"
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
@@ -36,43 +13,31 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contacto" className="py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="contacto" className="relative bg-gradient-to-b from-blue-700 via-blue-600 to-blue-800 py-24 overflow-hidden">
+      {/* Parallax background */}
+      <div 
+        className="absolute inset-0 opacity-20"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=800)',
+          backgroundAttachment: 'fixed',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-wider text-accent">
-            Contacto
-          </p>
-          <h2 className="mt-3 font-serif text-3xl font-bold text-foreground sm:text-4xl text-balance">
-            Hablemos de tu proximo proyecto
+          
+          <h2 className="mt-3 font-serif text-3xl font-bold text-white sm:text-4xl text-balance">
+            Hablemos de tu proximo proyecto 
           </h2>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            Cuentanos sobre tus necesidades y te responderemos en menos de 24
-            horas con una propuesta personalizada.
+          <p className="mt-4 text-white/90 leading-relaxed">
+            Cuéntanos sobre tus necesidades y te responderemos 
+            con una propuesta personalizada.
           </p>
         </div>
 
-        <div className="mt-16 grid gap-12 lg:grid-cols-5">
-          <div className="lg:col-span-2 flex flex-col gap-8">
-            {contactInfo.map((item) => (
-              <div key={item.label} className="flex items-start gap-4">
-                <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                  <item.icon className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-muted-foreground">
-                    {item.label}
-                  </p>
-                  <p className="mt-0.5 text-base font-semibold text-foreground">
-                    {item.value}
-                  </p>
-                </div>
-              </div>
-            ))}
-
-
-          </div>
-
-          <div className="lg:col-span-3">
+        <div className="mt-16 flex justify-center">
+          <div className="w-full lg:max-w-2xl">
             {submitted ? (
               <div className="flex h-full items-center justify-center rounded-xl border border-accent/30 bg-accent/5 p-12">
                 <div className="text-center">
@@ -90,13 +55,13 @@ export function ContactForm() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="rounded-xl border border-border bg-card p-8"
+                className="rounded-xl border-2 border-white/20 bg-white/10 backdrop-blur-md p-8 transition-all hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-400/50"
               >
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div>
                     <label
                       htmlFor="name"
-                      className="mb-2 block text-sm font-medium text-card-foreground"
+                      className="mb-2 block text-sm font-medium text-white"
                     >
                       Nombre completo
                     </label>
@@ -106,13 +71,13 @@ export function ContactForm() {
                       type="text"
                       required
                       placeholder="Tu nombre"
-                      className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent"
+                      className="w-full rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-3 text-sm text-white placeholder:text-white/50 outline-none transition-colors focus:border-white/40 focus:ring-1 focus:ring-white/40"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="email"
-                      className="mb-2 block text-sm font-medium text-card-foreground"
+                      className="mb-2 block text-sm font-medium text-white"
                     >
                       Correo electronico
                     </label>
@@ -122,7 +87,7 @@ export function ContactForm() {
                       type="email"
                       required
                       placeholder="tu@email.com"
-                      className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent"
+                      className="w-full rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-3 text-sm text-white placeholder:text-white/50 outline-none transition-colors focus:border-white/40 focus:ring-1 focus:ring-white/40"
                     />
                   </div>
                 </div>
@@ -130,7 +95,7 @@ export function ContactForm() {
                 <div className="mt-6">
                   <label
                     htmlFor="company"
-                    className="mb-2 block text-sm font-medium text-card-foreground"
+                    className="mb-2 block text-sm font-medium text-white"
                   >
                     Empresa
                   </label>
@@ -139,39 +104,39 @@ export function ContactForm() {
                     name="company"
                     type="text"
                     placeholder="Nombre de tu empresa"
-                    className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent"
+                    className="w-full rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-3 text-sm text-white placeholder:text-white/50 outline-none transition-colors focus:border-white/40 focus:ring-1 focus:ring-white/40"
                   />
                 </div>
 
                 <div className="mt-6">
                   <label
                     htmlFor="service"
-                    className="mb-2 block text-sm font-medium text-card-foreground"
+                    className="mb-2 block text-sm font-medium text-white"
                   >
-                    Servicio de interes
+                    Servicio de interés
                   </label>
                   <select
                     id="service"
                     name="service"
-                    className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent"
+                    className="w-full rounded-lg border border-white/20 bg-blue-900/40 backdrop-blur-sm px-4 py-3 text-sm text-white outline-none transition-colors focus:border-white/40 focus:ring-1 focus:ring-white/40"
                     defaultValue=""
                   >
                     <option value="" disabled>
                       Selecciona un servicio
                     </option>
                     <option value="software">Desarrollo de Software</option>
-                    <option value="data">Analisis de Datos</option>
+                    <option value="data">Análisis de Datos</option>
                     <option value="architecture">Arquitectura de Datos</option>
                     <option value="security">Ciberseguridad</option>
                     <option value="ai">Inteligencia Artificial</option>
-                    <option value="consulting">Consultoria Digital</option>
+                    <option value="consulting">Consultoría Digital</option>
                   </select>
                 </div>
 
                 <div className="mt-6">
                   <label
                     htmlFor="message"
-                    className="mb-2 block text-sm font-medium text-card-foreground"
+                    className="mb-2 block text-sm font-medium text-white"
                   >
                     Mensaje
                   </label>
@@ -180,14 +145,14 @@ export function ContactForm() {
                     name="message"
                     rows={5}
                     required
-                    placeholder="Cuentanos sobre tu proyecto..."
-                    className="w-full resize-none rounded-lg border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent"
+                    placeholder="Cuéntanos sobre tu proyecto..."
+                    className="w-full resize-none rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-3 text-sm text-white placeholder:text-white/50 outline-none transition-colors focus:border-white/40 focus:ring-1 focus:ring-white/40"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90"
+                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-white/20 backdrop-blur-sm px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white/30"
                 >
                   <Send className="h-4 w-4" />
                   Enviar mensaje

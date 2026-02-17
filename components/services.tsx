@@ -9,7 +9,7 @@ const services = [
   },
   {
     icon: BarChart3,
-    title: "Analisis de Datos",
+    title: "Análisis de Datos",
     description:
       "Transformamos tus datos en insights accionables con dashboards interactivos y reportes avanzados.",
   },
@@ -17,13 +17,13 @@ const services = [
     icon: Database,
     title: "Arquitectura de Datos",
     description:
-      "Disenamos e implementamos infraestructuras de datos robustas, seguras y preparadas para el futuro.",
+      "Diseñamos e implementamos infraestructuras de datos robustas, seguras y preparadas para el futuro.",
   },
   {
     icon: Shield,
     title: "Ciberseguridad",
     description:
-      "Protegemos tu infraestructura digital con auditorias, monitoreo y protocolos de seguridad avanzados.",
+      "Protegemos tu infraestructura digital con auditorías, monitoreo y protocolos de seguridad avanzados.",
   },
   {
     icon: Cpu,
@@ -33,26 +33,33 @@ const services = [
   },
   {
     icon: Globe,
-    title: "Consultoria Digital",
+    title: "Consultoría Digital",
     description:
-      "Asesoramos a tu equipo en transformacion digital, metodologias agiles y mejores practicas tecnologicas.",
+      "Asesoramos a tu equipo en transformación digital, metodologías ágiles y mejores prácticas tecnológicas.",
   },
 ]
 
 export function Services() {
   return (
-    <section id="servicios" className="py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="servicios" className="relative bg-gradient-to-b from-blue-500 to-blue-700 py-24 overflow-hidden">
+      {/* Parallax background */}
+      <div 
+        className="absolute inset-0 opacity-30"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1600&h=800)',
+          backgroundAttachment: 'fixed',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-wider text-accent">
-            Nuestros servicios
-          </p>
-          <h2 className="mt-3 font-serif text-3xl font-bold text-foreground sm:text-4xl text-balance">
-            Soluciones tecnologicas integrales
+          <h2 className="mt-3 font-serif text-3xl font-bold text-white sm:text-4xl text-balance">
+            Soluciones tecnológicas integrales
           </h2>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
+          <p className="mt-4 text-white/90 leading-relaxed">
             Ofrecemos un ecosistema completo de servicios para cubrir cada etapa
-            de tu transformacion digital.
+            de tu transformación digital.
           </p>
         </div>
 
@@ -60,7 +67,7 @@ export function Services() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="group rounded-xl border border-border bg-card p-8 transition-all hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5"
+              className="group rounded-xl border-2 border-white/20 bg-card p-8 transition-all hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-400/50"
             >
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
                 <service.icon className="h-6 w-6" />
