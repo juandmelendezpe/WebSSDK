@@ -1,7 +1,11 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useEffect, useRef, useState, useCallback } from "react"
+import { ChevronLeft, ChevronRight, Check, Handshake } from "lucide-react"
+
+const CARD_WIDTH = 300
+const CARD_GAP = 24
+const SCROLL_STEP = CARD_WIDTH + CARD_GAP
 
 const partners = [
   {
@@ -110,24 +114,34 @@ export function Partners() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(true)
+  const [activeIndex, setActiveIndex] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
-  const checkScroll = () => {
+  const updateScrollState = useCallback(() => {
     const el = scrollRef.current
     if (!el) return
     setCanScrollLeft(el.scrollLeft > 2)
     setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 2)
-  }
+    const index = Math.round(el.scrollLeft / SCROLL_STEP)
+    setActiveIndex(Math.min(Math.max(index, 0), partners.length - 1))
+  }, [])
 
   const scroll = (direction: "left" | "right") => {
     const el = scrollRef.current
     if (!el) return
-    const cardWidth = 340
-    el.scrollBy({ left: direction === "left" ? -cardWidth : cardWidth, behavior: "smooth" })
+    el.scrollBy({
+      left: direction === "left" ? -SCROLL_STEP : SCROLL_STEP,
+      behavior: "smooth",
+    })
   }
 
-  // Auto-play carousel
+  const scrollToIndex = (index: number) => {
+    const el = scrollRef.current
+    if (!el) return
+    el.scrollTo({ left: index * SCROLL_STEP, behavior: "smooth" })
+  }
+
   useEffect(() => {
     if (!isAutoPlaying) return
 
@@ -138,9 +152,9 @@ export function Partners() {
       if (el.scrollLeft >= el.scrollWidth - el.clientWidth - 2) {
         el.scrollTo({ left: 0, behavior: "smooth" })
       } else {
-        el.scrollBy({ left: 340, behavior: "smooth" })
+        el.scrollBy({ left: SCROLL_STEP, behavior: "smooth" })
       }
-    }, 3000)
+    }, 4000)
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current)
@@ -150,34 +164,65 @@ export function Partners() {
   useEffect(() => {
     const el = scrollRef.current
     if (!el) return
-    checkScroll()
-    el.addEventListener("scroll", checkScroll)
-    return () => el.removeEventListener("scroll", checkScroll)
-  }, [])
+    updateScrollState()
+    el.addEventListener("scroll", updateScrollState)
+    window.addEventListener("resize", updateScrollState)
+    return () => {
+      el.removeEventListener("scroll", updateScrollState)
+      window.removeEventListener("resize", updateScrollState)
+    }
+  }, [updateScrollState])
 
   return (
-    <section className="bg-gradient-to-b from-blue-700 to-blue-900 py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="aliados" className="relative overflow-hidden bg-[#060620] py-24">
+      {/* Fondo decorativo */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="absolute -top-32 left-1/2 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+            backgroundSize: "32px 32px",
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center">
-          
-          <h2 className="mt-3 font-serif text-3xl font-bold text-white sm:text-4xl text-balance">
-            Aliados tecnologicos de clase mundial
+          <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent">
+            <Handshake className="h-4 w-4" />
+            Alianzas estratégicas
+          </div>
+          <h2 className="mt-5 font-serif text-3xl font-bold text-primary-foreground sm:text-4xl text-balance">
+            Aliados tecnológicos de{" "}
+            <span className="text-accent">clase mundial</span>
           </h2>
-          <p className="mt-4 text-white/90 leading-relaxed">
-            Trabajamos con los lideres de la industria para ofrecer soluciones
+          <p className="mt-4 text-primary-foreground/70 leading-relaxed text-pretty">
+            Trabajamos con los líderes de la industria para ofrecer soluciones
             robustas, escalables y de vanguardia.
           </p>
         </div>
 
         <div className="relative mt-16">
-          {/* Navigation buttons */}
+          {/* Desvanecimiento lateral */}
+          <div
+            className={`pointer-events-none absolute left-0 top-0 z-[5] h-full w-12 bg-gradient-to-r from-[#060620] to-transparent transition-opacity duration-300 sm:w-20 ${canScrollLeft ? "opacity-100" : "opacity-0"}`}
+            aria-hidden="true"
+          />
+          <div
+            className={`pointer-events-none absolute right-0 top-0 z-[5] h-full w-12 bg-gradient-to-l from-[#060620] to-transparent transition-opacity duration-300 sm:w-20 ${canScrollRight ? "opacity-100" : "opacity-0"}`}
+            aria-hidden="true"
+          />
+
           <button
             onClick={() => {
               setIsAutoPlaying(false)
               scroll("left")
             }}
             disabled={!canScrollLeft}
-            className="absolute -left-4 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-md transition-all hover:bg-accent hover:text-accent-foreground disabled:pointer-events-none disabled:opacity-30 lg:-left-5"
+            className="absolute -left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-primary-foreground/20 bg-primary-foreground/10 text-primary-foreground shadow-lg backdrop-blur-sm transition-all hover:border-accent hover:bg-accent hover:text-accent-foreground disabled:pointer-events-none disabled:opacity-0 sm:-left-4 lg:-left-6"
             aria-label="Anterior"
           >
             <ChevronLeft className="h-5 w-5" />
@@ -189,28 +234,27 @@ export function Partners() {
               scroll("right")
             }}
             disabled={!canScrollRight}
-            className="absolute -right-4 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-md transition-all hover:bg-accent hover:text-accent-foreground disabled:pointer-events-none disabled:opacity-30 lg:-right-5"
+            className="absolute -right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-primary-foreground/20 bg-primary-foreground/10 text-primary-foreground shadow-lg backdrop-blur-sm transition-all hover:border-accent hover:bg-accent hover:text-accent-foreground disabled:pointer-events-none disabled:opacity-0 sm:-right-4 lg:-right-6"
             aria-label="Siguiente"
           >
             <ChevronRight className="h-5 w-5" />
           </button>
 
-          {/* Carousel track */}
           <div
             ref={scrollRef}
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
-            className="scrollbar-hide flex gap-6 overflow-x-auto scroll-smooth pb-4"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            className="scrollbar-hide flex gap-6 overflow-x-auto scroll-smooth pb-2 pt-1"
           >
             {partners.map((partner) => (
-              <div
+              <article
                 key={partner.name}
-                className="group flex w-[310px] h-[440px] flex-shrink-0 flex-col items-center justify-center rounded-xl border-2 border-cyan-400 shadow-lg shadow-cyan-400/50 bg-card p-6 transition-all hover:border-cyan-300 hover:shadow-xl hover:shadow-cyan-400/70"
+                className="group relative flex w-[300px] flex-shrink-0 flex-col overflow-hidden rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:bg-primary-foreground/[0.07] hover:shadow-xl hover:shadow-accent/10"
               >
-                {/* Logo + Name */}
-                <div className="flex flex-col items-center justify-center gap-4 text-center">
-                  <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-background p-2.5">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                <div className="relative flex items-center gap-4">
+                  <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-accent/15 ring-1 ring-accent/25 transition-all group-hover:bg-accent/25 group-hover:ring-accent/40">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={partner.logo}
@@ -220,43 +264,43 @@ export function Partners() {
                       className="h-9 w-9 object-contain"
                     />
                   </div>
-                  <h3 className="text-base font-semibold text-card-foreground leading-tight">
+                  <h3 className="text-base font-semibold leading-tight text-primary-foreground">
                     {partner.name}
                   </h3>
                 </div>
 
-                {/* Separator */}
-                <div className="my-4 h-px bg-border" />
+                <div className="relative my-5 h-px bg-gradient-to-r from-transparent via-primary-foreground/15 to-transparent" />
 
-                {/* Services */}
-                <ul className="flex flex-col gap-2.5 text-center">
+                <ul className="relative flex flex-col gap-3">
                   {partner.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-center justify-center gap-2.5 text-sm text-muted-foreground"
+                      className="flex items-start gap-2.5 text-sm text-primary-foreground/65"
                     >
-                      <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
+                      <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
                       <span className="leading-relaxed">{service}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
+              </article>
             ))}
           </div>
 
-          {/* Scroll indicator dots */}
-          <div className="mt-8 flex items-center justify-center gap-1.5">
+          <div className="mt-10 flex items-center justify-center gap-2">
             {partners.map((partner, i) => (
               <button
                 key={partner.name}
                 onClick={() => {
                   setIsAutoPlaying(false)
-                  const el = scrollRef.current
-                  if (!el) return
-                  el.scrollTo({ left: i * 340, behavior: "smooth" })
+                  scrollToIndex(i)
                 }}
-                className="h-1.5 w-1.5 rounded-full bg-border transition-colors hover:bg-accent"
+                className={`rounded-full transition-all duration-300 ${
+                  i === activeIndex
+                    ? "w-7 bg-accent"
+                    : "w-2 bg-primary-foreground/25 hover:bg-accent/50"
+                } h-2`}
                 aria-label={`Ir a ${partner.name}`}
+                aria-current={i === activeIndex ? "true" : undefined}
               />
             ))}
           </div>

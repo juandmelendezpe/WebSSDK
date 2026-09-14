@@ -5,11 +5,17 @@ const footerLinks = {
     { label: "Desarrollo de Software", href: "#servicios" },
     { label: "Análisis de Datos", href: "#servicios" },
     { label: "Arquitectura de Datos", href: "#servicios" },
-    { label: "Ciberseguridad", href: "#servicios" },
+    { label: "Inteligencia Artificial", href: "#servicios" },
+    { label: "Automatización de Procesos", href: "#servicios" },
+    { label: "Consultoría Tecnológica", href: "#servicios" },
+    { label: "Desarrollo de Negocios y Transformación Digital", href: "#servicios" },
   ],
   empresa: [
     { label: "Sobre nosotros", href: "#nosotros" },
     { label: "Contacto", href: "#contacto" },
+    { label: "Política de privacidad", href: "#privacidad" },
+    { label: "Términos y condiciones", href: "#terminos" },
+    
   ],
 }
 
@@ -21,7 +27,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center gap-3">
               <span className="font-serif text-lg font-bold text-primary-foreground">
-                STATUS SDK Inc.
+                STATUS SOFTWARE & DEVELOPMENT KERNEL Inc.
               </span>
               <Image
                 src="/images/logo.png"
@@ -37,8 +43,9 @@ export function Footer() {
             </p>
             <div className="mt-4 flex flex-col gap-1.5 text-sm text-primary-foreground/50">
               <span>Lima, San Isidro | Perú</span>
+              <span>Castilla y León, Ávila | España</span>
               <span>clientes@statussdk.com</span>
-              <span>L-V 8:00 AM - 6:00 PM | Soporte 24/7</span>
+              <span>L-V 08:00 AM - 18:00 PM | Soporte 24/7</span>
             </div>
           </div>
 
@@ -81,7 +88,7 @@ export function Footer() {
 
         <div className="mt-12 border-t border-primary-foreground/10 pt-8 text-center">
           <p className="text-xs text-primary-foreground/40">
-            &copy; {new Date().getFullYear()} STATUS SDK Inc. Todos los derechos
+            &copy; {new Date().getFullYear()} STATUS SOFTWARE & DEVELOPMENT KERNEL Inc. |  Todos los derechos
             reservados.
           </p>
         </div>
