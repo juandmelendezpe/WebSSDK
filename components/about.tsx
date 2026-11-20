@@ -8,28 +8,24 @@ const highlights = [
   "Soporte continuo y mantenimiento post-lanzamiento",
 ]
 
-const stats = [
-  { value: "150+", label: "Proyectos completados" },
-  { value: "50+", label: "Clientes activos" },
-  { value: "10+", label: "Años de experiencia" },
-  { value: "99%", label: "Satisfacción del cliente" },
+const capabilities = [
+  { title: "IA aplicada", description: "para retos concretos" },
+  { title: "I+D individual", description: "desarrollo a medida" },
+  { title: "Prototipos evaluables", description: "antes de escalar" },
+  { title: "Integración con sistemas", description: "adopción en procesos existentes" },
 ]
 
 const contactInfo = [
   {
     icon: MapPin,
     label: "Ubicación",
-    value: "Lima, San Isidro | Perú",
+    value: "Lima, San Isidro - Perú" + "| Castilla y León, Ávila - España",
+
   },
   {
     icon: Mail,
     label: "Email",
     value: "clientes@statussdk.com",
-  },
-  {
-    icon: Clock,
-    label: "Horario de oficina",
-    value: "Lunes a Viernes: 8:00 AM - 6:00 PM",
   },
   {
     icon: Headset,
@@ -51,11 +47,11 @@ export function About() {
               Innovación y excelencia en cada línea de código
             </h2>
             <p className="mt-6 text-base leading-relaxed text-primary-foreground/70">
-              STATUS SDK Inc. es una empresa de tecnología especializada en
-              desarrollo de software y análisis de datos. Desde nuestra
-              fundación, hemos ayudado a empresas de todos los tamaños a
-              transformar sus operaciones mediante soluciones digitales
-              innovadoras.
+              En STATUS SDK Inc. impulsamos la investigación y el desarrollo
+              tecnológico desde un enfoque individualizado. Analizamos cada
+              idea y necesidad para diseñar, validar y construir soluciones de
+              software y análisis de datos a la medida, acompañando cada
+              iniciativa desde la exploración inicial hasta su implementación.
             </p>
 
             <ul className="mt-8 flex flex-col gap-4">
@@ -81,16 +77,16 @@ export function About() {
               />
             </div>
             <div className="mt-8 grid grid-cols-2 gap-4">
-              {stats.map((stat) => (
+              {capabilities.map((capability) => (
                 <div
-                  key={stat.label}
-                  className="rounded-xl border border-primary-foreground/10 bg-primary-foreground/5 p-5 text-center"
+                  key={capability.title}
+                  className="flex min-h-32 flex-col items-center justify-center rounded-xl border-2 border-white/20 bg-primary-foreground/5 p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:bg-primary-foreground/10 hover:shadow-lg hover:shadow-cyan-400/50"
                 >
-                  <p className="font-serif text-3xl font-bold text-accent">
-                    {stat.value}
+                  <p className="font-serif text-xl font-bold text-accent">
+                    {capability.title}
                   </p>
                   <p className="mt-1 text-xs font-medium text-primary-foreground/60">
-                    {stat.label}
+                    {capability.description}
                   </p>
                 </div>
               ))}
@@ -100,7 +96,7 @@ export function About() {
 
         {/* Contact Info Footer */}
         <div className="mt-20 border-t border-primary-foreground/10 pt-16">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {contactInfo.map((item) => (
               <div key={item.label} className="flex flex-col items-center text-center">
                 <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-accent/10 text-accent mb-3">

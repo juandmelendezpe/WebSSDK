@@ -14,18 +14,6 @@ const services = [
       "Transformamos tus datos en insights accionables con dashboards interactivos y reportes avanzados.",
   },
   {
-    icon: Database,
-    title: "Arquitectura de Datos",
-    description:
-      "Diseñamos e implementamos infraestructuras de datos robustas, seguras y preparadas para el futuro.",
-  },
-  {
-    icon: Shield,
-    title: "Ciberseguridad",
-    description:
-      "Protegemos tu infraestructura digital con auditorías, monitoreo y protocolos de seguridad avanzados.",
-  },
-  {
     icon: Cpu,
     title: "Inteligencia Artificial",
     description:
@@ -37,6 +25,19 @@ const services = [
     description:
       "Asesoramos a tu equipo en transformación digital, metodologías ágiles y mejores prácticas tecnológicas.",
   },
+  {
+    icon: Shield,
+    title: "Desarrollo de Negocios y Transformación Digital",
+    description:
+      "Impulsamos la innovación y la eficiencia en tu empresa mediante estrategias digitales personalizadas.",            
+  },
+  {
+    icon: Database,
+    title: "Automatización de Procesos",
+    description:
+      "Optimizamos tus operaciones mediante la automatización de tareas repetitivas y flujos de trabajo inteligentes.",
+  }
+
 ]
 
 export function Services() {

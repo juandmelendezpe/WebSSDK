@@ -50,7 +50,7 @@ const partners = [
   },
   {
     name: "OpenAI",
-    logo: "https://www.vectorlogo.zone/logos/openai/openai-icon.svg",
+    logo: "/images/partners/openai.svg",
     services: [
       "GPT-4 / LLMs",
       "DALL-E (Generación de imágenes)",
@@ -60,7 +60,7 @@ const partners = [
   },
   {
     name: "Anthropic",
-    logo: "https://www.vectorlogo.zone/logos/anthropic/anthropic-icon.svg",
+    logo: "/images/partners/anthropic.svg",
     services: [
       "Claude AI (LLM avanzado)",
       "Análisis de documentos",

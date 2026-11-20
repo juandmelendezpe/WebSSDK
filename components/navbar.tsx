@@ -27,10 +27,10 @@ export function Navbar() {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-md border-b border-primary-foreground/10">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/15 bg-[#080d26]/95 shadow-lg shadow-black/10 backdrop-blur-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
         <div className="flex items-center gap-8">
-          <Link href="/" className="font-serif text-lg font-bold text-primary-foreground">
+          <Link href="/" className="font-serif text-lg font-bold text-white">
             SSDK Inc.
           </Link>
 
@@ -39,7 +39,7 @@ export function Navbar() {
               <li key={link.href}>
                 <a
                   href={getLinkHref(link.href)}
-                  className="text-sm font-medium text-primary-foreground/70 transition-colors hover:text-primary-foreground"
+                  className="rounded-md border border-transparent px-3 py-2 text-sm font-medium text-white/90 transition-colors hover:border-accent/70 hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                 >
                   {link.label}
                 </a>
@@ -57,9 +57,11 @@ export function Navbar() {
           </a>
 
           <button
-            className="text-primary-foreground md:hidden"
+            className="rounded-md p-2 text-white transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Cerrar menu" : "Abrir menu"}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
           >
             {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -77,13 +79,13 @@ export function Navbar() {
       </nav>
 
       {mobileOpen && (
-        <div className="border-t border-primary-foreground/10 bg-primary px-6 pb-6 pt-4 md:hidden">
+        <div id="mobile-navigation" className="border-t border-white/15 bg-[#080d26] px-6 pb-6 pt-4 md:hidden">
           <ul className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={getLinkHref(link.href)}
-                  className="block text-base font-medium text-primary-foreground/80 transition-colors hover:text-primary-foreground"
+                  className="block rounded-md border border-transparent px-3 py-2 text-base font-medium text-white/90 transition-colors hover:border-accent/70 hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}

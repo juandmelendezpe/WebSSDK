@@ -169,10 +169,10 @@ export function ContactForm() {
                       Selecciona un servicio
                     </option>
                     <option value="software">Desarrollo de Software</option>
-                    <option value="data">Análisis de Datos</option>
-                    <option value="architecture">Arquitectura de Datos</option>
-                    <option value="security">Ciberseguridad</option>
+                    <option value="business">Desarrollo de Negocios y Transformación Digital</option>
                     <option value="ai">Inteligencia Artificial</option>
+                    <option value="data">Análisis de Datos</option>
+                    <option value="automation">Automatización de Procesos</option>
                     <option value="consulting">Consultoría Digital</option>
                   </select>
                 </div>

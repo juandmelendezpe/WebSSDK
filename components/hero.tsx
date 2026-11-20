@@ -167,20 +167,20 @@ export function Hero() {
           <div>
 
             <h1 className="font-serif text-4xl font-bold leading-tight text-primary-foreground sm:text-5xl lg:text-6xl text-balance">
-              La <span className="text-accent">inteligencia artificial</span> es el motor de la industria del futuro
+              <span className="text-accent">Investigación y desarrollo</span>{" "}
+              de software para resolver retos de negocio
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-primary-foreground/80 text-pretty">
-              Las empresas que integran IA hoy lideran manana. En STATUS SDK Inc.
-              desarrollamos soluciones innovadoras que combinan inteligencia artificial,
-              análisis de datos y desarrollo de software para transformar tu operación
-              y posicionarte a la vanguardia de tu industria.
+              En STATUS SDK Inc. exploramos ideas, procesos y tecnologías para
+              crear soluciones de software que respondan a las necesidades reales
+              de cada negocio.
             </p>
 
             <p className="mt-4 max-w-xl text-base leading-relaxed text-primary-foreground/60">
-              Desde la automatizacion de procesos hasta modelos predictivos avanzados,
-              ayudamos a tu empresa a tomar decisiones más rápidas, reducir costos
-              y descubrir oportunidades que antes eran invisibles.
+              Combinamos desarrollo, análisis de datos e inteligencia artificial
+              para probar enfoques, optimizar operaciones y convertir oportunidades
+              en productos digitales.
             </p>
           </div>
 
