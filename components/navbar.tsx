@@ -8,10 +8,9 @@ import { Menu, X } from "lucide-react"
 
 const navLinks = [
   { label: "Inicio", href: "#inicio" },
-  { label: "Servicios", href: "#servicios" },
   { label: "Noticias", href: "#noticias" },
   { label: "Nosotros", href: "#nosotros" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Servicios", href: "#servicios" },
 ]
 
 export function Navbar() {
@@ -51,9 +50,9 @@ export function Navbar() {
         <div className="flex items-center gap-4">
           <a
             href={getLinkHref("#contacto")}
-            className="hidden rounded-lg bg-accent px-5 py-2 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 md:block"
+            className="hidden rounded-lg border border-transparent bg-accent px-5 py-2 text-sm font-semibold text-accent-foreground transition-all duration-200 hover:border-cyan-300 hover:opacity-90 hover:shadow-lg hover:shadow-cyan-300/30 focus-visible:border-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300 active:border-cyan-400 md:block"
           >
-            Contactar
+            Habla con nosotros
           </a>
 
           <button

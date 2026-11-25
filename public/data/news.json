@@ -1,5 +1,38 @@
 [
   {
+    "id": "4",
+    "title": "Gemini, OpenAI y Anthropic: cómo comparar sus modelos de IA",
+    "subtitle": "Una guía breve a las familias de modelos actuales y sus fortalezas, con información consultada el 25 de noviembre de 2026",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop",
+    "date": "2026-11-25",
+    "author": "Equipo de STATUS SDK",
+    "category": "Inteligencia artificial",
+    "content": "Elegir un modelo de IA no consiste solo en buscar el nombre más reciente. Las familias de OpenAI, Google y Anthropic ofrecen distintas opciones para razonamiento, velocidad, multimodalidad y trabajo con agentes. Esta comparación resume la información publicada por los propios proveedores a fecha de 25 de noviembre de 2026.\n\n## Modelos destacados\n\n- OpenAI presenta GPT-6.2 Astra para tareas complejas de razonamiento y programación, y GPT-6.2 Sol como opción equilibrada para trabajo general y agentes.\n- Google describe Gemini 4 Carbon como su modelo de razonamiento más potente, Gemini 4 Neon para completar tareas complejas con rapidez y Gemini 4 Hydrogen para tareas cotidianas de programación y agentes.\n- Anthropic recomienda Claude Opus 5.5 para una variedad de cargas de trabajo; Claude Sonnet 5.5 prioriza el equilibrio entre rapidez e inteligencia, y Claude Haiku 5.5 las tareas sensibles a la latencia. Claude Fable 5.2 está orientado al razonamiento exigente y a tareas agénticas de largo recorrido.\n\n## ¿Cómo elegir?\n\nLas descripciones anteriores reflejan los casos de uso publicados por cada proveedor; no son una comparación realizada bajo un benchmark común. El rendimiento real depende de la tarea, el contexto, las herramientas disponibles, el coste y la latencia.\n\nAntes de integrar un modelo, prueba las opciones con ejemplos representativos de tu producto. Evalúa calidad de respuesta, consistencia, seguridad, coste total y facilidad de integración, y vuelve a comprobar esos criterios cuando cambien los modelos.\n\n## Fuentes oficiales\n\nOpenAI: https://developers.openai.com/api/docs/models\n\nGoogle: https://aistudio.google.com/docs/models\n\nAnthropic: https://platform.claude.com/docs/en/models/overview",
+    "readTime": "5 min"
+  },
+  {
+    "id": "5",
+    "title": "Harness engineering: preparar el entorno para agentes de IA",
+    "subtitle": "Por qué las instrucciones, herramientas, pruebas y ciclos de evaluación importan tanto como el modelo",
+    "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=1200&auto=format&fit=crop",
+    "date": "2026-11-24",
+    "author": "Equipo de STATUS SDK",
+    "category": "Ingeniería de software",
+    "content": "Cuando un agente de IA pasa de responder preguntas a trabajar con un repositorio, ejecutar herramientas y proponer cambios, el modelo por sí solo no basta. Harness engineering es la práctica de diseñar el entorno que lo guía: contexto, instrucciones, herramientas autorizadas y mecanismos de validación.\n\n## ¿Qué forma parte del harness?\n\n- Un repositorio con estructura, convenciones e instrucciones claras para cada tarea.\n- Herramientas y permisos definidos según el trabajo, con acceso limitado a lo necesario.\n- Pruebas, análisis estático y criterios de aceptación que permitan comprobar el resultado.\n- Registros y ciclos de retroalimentación para detectar errores y volver a evaluar los cambios.\n\n## De la instrucción a un proceso confiable\n\nUna buena instrucción ayuda, pero no sustituye un entorno verificable. Si el agente puede ejecutar pruebas y recibir resultados concretos, es más fácil detectar fallos y corregirlos antes de integrar un cambio. La revisión humana sigue siendo importante, especialmente cuando una decisión afecta datos, seguridad o usuarios.\n\nUn buen comienzo es automatizar una tarea pequeña y repetible: documentar el resultado esperado, limitar los permisos, preparar las comprobaciones y medir cuántas veces hay que intervenir. Luego se puede ampliar el alcance con evidencia, no solo con confianza en el modelo.\n\nOpenAI describió este enfoque en su artículo de ingeniería sobre el uso de Codex en un entorno orientado a agentes, destacando la importancia de preparar herramientas, contexto y ciclos de validación.\n\n## Fuente\n\nOpenAI, Harness engineering: https://openai.com/index/harness-engineering/",
+    "readTime": "4 min"
+  },
+  {
+    "id": "6",
+    "title": "Ciberseguridad desde el diseño: hábitos que fortalecen tus aplicaciones",
+    "subtitle": "Prácticas concretas para reducir riesgos desde el desarrollo hasta la operación",
+    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop",
+    "date": "2026-11-23",
+    "author": "Equipo de STATUS SDK",
+    "category": "Ciberseguridad",
+    "content": "La ciberseguridad no es una tarea que se resuelve al final del desarrollo. Integrar controles desde el diseño ayuda a proteger las cuentas, los datos y la continuidad del servicio, y facilita responder cuando aparece un incidente.\n\n## Prácticas para incorporar al trabajo diario\n\n- Activa autenticación multifactor y asigna a cada cuenta solo los permisos que necesita.\n- Mantén dependencias y plataformas actualizadas; revisa alertas y elimina componentes que ya no uses.\n- Protege secretos fuera del código y cifra la información sensible en tránsito y almacenamiento.\n- Registra eventos relevantes, limita el acceso a los registros y verifica que existan copias de seguridad recuperables.\n- Define cómo reportar, contener y resolver incidentes, y practica el proceso antes de necesitarlo.\n\n## Un marco para priorizar\n\nEl NIST Cybersecurity Framework 2.0 organiza la gestión del riesgo en seis funciones: Gobernar, Identificar, Proteger, Detectar, Responder y Recuperar. Para aplicaciones web, OWASP Top 10 2025 ofrece una referencia de concienciación sobre riesgos comunes que los equipos pueden incluir en sus revisiones y pruebas.\n\nLa prioridad depende del contexto: tipo de datos, usuarios, integraciones y obligaciones del negocio. Empieza por identificar los activos críticos y revisar los controles que tendrían mayor impacto si fallaran.\n\n## Fuentes\n\nNIST Cybersecurity Framework: https://www.nist.gov/cyberframework\n\nOWASP Top 10 2025: https://owasp.org/Top10/2025/",
+    "readTime": "5 min"
+  },
+  {
     "id": "1",
     "title": "SSDK Inc. Lanza Plataforma de Análisis de Datos en Tiempo Real",
     "subtitle": "Nueva solución empresarial que transforma datos en insights accionables en segundos",

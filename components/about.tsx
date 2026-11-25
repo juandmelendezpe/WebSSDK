@@ -36,8 +36,20 @@ const contactInfo = [
 
 export function About() {
   return (
-    <section id="nosotros" className="bg-primary py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section
+      id="nosotros"
+      className="relative isolate overflow-hidden bg-[#101b36] py-24"
+    >
+      <div
+        className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/images/about-background.svg')" }}
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-br from-[#101b36]/90 via-[#142349]/90 to-[#10172f]/95"
+        aria-hidden="true"
+      />
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-16 lg:grid-cols-2">
           <div>
             <p className="text-sm font-semibold uppercase tracking-wider text-accent">

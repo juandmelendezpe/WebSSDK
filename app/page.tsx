@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { Services } from "@/components/services"
+import { FeaturedProjects } from "@/components/featured-projects"
 import { Partners } from "@/components/partners"
 import { News } from "@/components/news"
 import { About } from "@/components/about"
@@ -14,6 +15,7 @@ export default function Page() {
       <Hero />
       <Partners />
       <Services />
+      <FeaturedProjects />
       <News />
       <About />
       <ContactForm />
